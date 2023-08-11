@@ -2,12 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { CookiesProvider } from 'react-cookie';
+import { Home } from './Component/Home';
+import { BrowserRouter } from 'react-router-dom';
+import store from './Component/stores/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+    <CookiesProvider>
+      <BrowserRouter>
+        < Home />
+        </BrowserRouter>
+    </CookiesProvider>
+    </Provider>
   </React.StrictMode>
 );
 
